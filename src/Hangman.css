@@ -55,3 +55,16 @@
   color: #eeeeee;
   box-shadow: 0 6px #9e9e9e;
 }
+
+#reset {
+  display: block;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  background: violet;
+  box-shadow: 0 6px rgb(194, 105, 194);
+}
+
+#reset:hover {
+  background: rgb(194, 105, 194);
+}
