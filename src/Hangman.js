@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { randomWord } from "./word";
+import { randomWord } from './word';
 
 import './Hangman.css';
 import img0 from './images/0.jpg';
@@ -24,6 +24,15 @@ class Hangman extends Component {
       word: randomWord()
     };
     this.handleGuess = this.handleGuess.bind(this);
+    this.reset = this.reset.bind(this);
+  }
+
+  reset() {
+    this.setState({
+      nWrong: 0,
+      guessed: new Set(),
+      word: randomWord()
+    });
   }
 
   /** guessedWord: show current-state of word:
@@ -63,10 +72,11 @@ class Hangman extends Component {
     return (
       <div className='Hangman'>
         <h1>Hangman</h1>
-        <img src={this.props.images[this.state.nWrong]} alt={altText}/>
+        <img src={this.props.images[this.state.nWrong]} alt={altText} />
         <p>{`Guessed wrong: ${this.state.nWrong} / ${this.props.maxWrong}`}</p>
         <p className='Hangman-word'>{!gameOver ? this.guessedWord() : this.state.word}</p>
         <p className='Hangman-btns'>{!gameOver ? this.generateButtons() : 'You lose'}</p>
+        <button id="reset" onClick={this.reset}>Reset</button>
       </div>
     );
   }
