@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { randomWord } from "./word";
+
 import './Hangman.css';
 import img0 from './images/0.jpg';
 import img1 from './images/1.jpg';
@@ -19,7 +21,7 @@ class Hangman extends Component {
     this.state = {
       nWrong: 0,
       guessed: new Set(),
-      word: 'apple'
+      word: randomWord()
     };
     this.handleGuess = this.handleGuess.bind(this);
   }
