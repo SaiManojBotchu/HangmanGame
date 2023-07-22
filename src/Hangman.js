@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { randomWord } from './word';
-
 import './Hangman.css';
 import img0 from './images/0.jpg';
 import img1 from './images/1.jpg';
@@ -39,7 +38,9 @@ class Hangman extends Component {
     if guessed letters are {a,p,e}, show "app_e" for "apple"
   */
   guessedWord() {
-    return this.state.word.split('').map(ltr => (this.state.guessed.has(ltr) ? ltr : '_'));
+    return this.state.word
+      .split('')
+      .map(ltr => (this.state.guessed.has(ltr) ? ltr : '_'));
   }
 
   /** handleGuess: handle a guessed letter:
@@ -84,9 +85,7 @@ class Hangman extends Component {
         <p>{`Guessed wrong: ${this.state.nWrong} / ${this.props.maxWrong}`}</p>
         <p className='Hangman-word'>{gameWord}</p>
         <p className='Hangman-btns'>{gameState}</p>
-        <button id='reset' onClick={this.reset}>
-          Reset
-        </button>
+        <button id='reset' onClick={this.reset}>Reset</button>
       </div>
     );
   }
